@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.env
+.venv
+venv/
+.idea/
+.vscode/
+videos/
+*.log
+
+# OpenCV temp
+*.avi
+*.mp4~

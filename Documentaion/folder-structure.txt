@@ -1,0 +1,81 @@
+Traffic-Management-System/
+│
+├── app.py                      # Main Flask application
+├── config.py                   # Global config (modes, thresholds)
+├── requirements.txt            # Python dependencies
+│
+├── core/                        # Core logic (brain of system)
+│   ├── __init__.py
+│   ├── mode_manager.py         # Simulation / Normal mode switch
+│   ├── vehicle_counter.py      # Vehicle counting logic (OpenCV)
+│   ├── timing_logic.py         # Dynamic signal timing algorithm
+│   ├── emergency_handler.py    # Emergency vehicle priority
+│   ├── fail_safe.py            # Camera failure handling
+│
+├── camera/                     # Camera & video input handling
+│   ├── __init__.py
+│   ├── live_camera.py          # Real camera stream
+│   ├── video_feed.py           # Pre-recorded video feeds
+│   ├── mjpeg_stream.py         # MJPEG streaming logic
+│
+├── hardware/                   # Arduino & relay integration
+│   ├── __init__.py
+│   ├── arduino_serial.py       # Python ↔ Arduino communication
+│   ├── signal_commands.py      # Signal commands mapping
+│
+├── arduino_code/               # Arduino programs
+│   └── traffic_signal.ino      # LED + relay control code
+│
+├── static/                     # Frontend static files
+│   ├── css/
+│   │   └── style.css           # Dashboard styling
+│   ├── js/
+│   │   └── dashboard.js        # Live updates (fetch API)
+│   └── assets/
+│       └── icons/              # Signal icons, images
+│
+├── templates/                  # HTML pages (Admin Panel)
+│   ├── base.html               # Common layout
+│   ├── dashboard.html          # Main control dashboard
+│   ├── simulation.html         # Simulation mode UI
+│   └── live_mode.html          # Normal working mode UI
+│
+├── videos/                     # Pre-recorded traffic videos
+│   ├── north.mp4
+│   ├── south.mp4
+│   ├── east.mp4
+│   └── west.mp4
+│
+├── utils/                      # Helper utilities
+│   ├── logger.py               # Console logging
+│   └── helpers.py              # Common helper functions
+│
+├── docs/                       # Documentation
+│   ├── architecture.png        # System architecture diagram
+│   ├── flowchart.png           # Workflow diagram
+│   └── report.docx             # Final report
+│
+└── README.md                   # Project overview & setup
+
+
+Folder Explanation (Short & Viva-Ready)
+
+app.py → Entry point (Flask server)
+
+core/ → Decision making & intelligence
+
+camera/ → Live camera + video feed handling
+
+hardware/ → Arduino & relay communication
+
+arduino_code/ → Hardware signal logic
+
+templates/ → Admin panel UI
+
+static/ → CSS & JavaScript
+
+videos/ → Simulation traffic videos
+
+docs/ → Report, diagrams
+
+config.py → Modes, thresholds, timings

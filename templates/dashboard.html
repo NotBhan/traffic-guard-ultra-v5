@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+  <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-4">
+
+    <div class="bg-panelBg rounded border border-borderDark shadow-lg">
+      <div class="bg-slate-900/50 px-3 py-2 border-b border-borderDark flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <span class="font-bold text-sm">North</span>
+            <span id="badge-north" class="w-3 h-3 rounded-full bg-gray-600 shadow-inner ring-1 ring-white/10"></span>
+        </div>
+        <span class="text-xs text-yellow-400">Vehicles: <span id="northCount">0</span></span>
+      </div>
+      <img src="/stream/north" class="w-full h-56 object-cover" />
+    </div>
+
+    <div class="bg-panelBg rounded border border-borderDark shadow-lg">
+      <div class="bg-slate-900/50 px-3 py-2 border-b border-borderDark flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <span class="font-bold text-sm">South</span>
+            <span id="badge-south" class="w-3 h-3 rounded-full bg-gray-600 shadow-inner ring-1 ring-white/10"></span>
+        </div>
+        <span class="text-xs text-yellow-400">Vehicles: <span id="southCount">0</span></span>
+      </div>
+      <img src="/stream/south" class="w-full h-56 object-cover" />
+    </div>
+
+    <div class="bg-panelBg rounded border border-borderDark shadow-lg">
+      <div class="bg-slate-900/50 px-3 py-2 border-b border-borderDark flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <span class="font-bold text-sm">East</span>
+            <span id="badge-east" class="w-3 h-3 rounded-full bg-gray-600 shadow-inner ring-1 ring-white/10"></span>
+        </div>
+        <span class="text-xs text-yellow-400">Vehicles: <span id="eastCount">0</span></span>
+      </div>
+      <img src="/stream/east" class="w-full h-56 object-cover" />
+    </div>
+
+    <div class="bg-panelBg rounded border border-borderDark shadow-lg">
+      <div class="bg-slate-900/50 px-3 py-2 border-b border-borderDark flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <span class="font-bold text-sm">West</span>
+            <span id="badge-west" class="w-3 h-3 rounded-full bg-gray-600 shadow-inner ring-1 ring-white/10"></span>
+        </div>
+        <span class="text-xs text-yellow-400">Vehicles: <span id="westCount">0</span></span>
+      </div>
+      <img src="/stream/west" class="w-full h-56 object-cover" />
+    </div>
+
+  </div>
+
+  <div class="space-y-6">
+
+    <div id="signalBox" class="signal-box green bg-panelBg p-5 rounded border border-borderDark text-center">
+      <p class="text-xs text-slate-500 uppercase">Current Green</p>
+      <p id="currentDirection" class="text-2xl font-bold text-white">---</p>
+      <p class="text-xs text-slate-500 uppercase mt-3">Next Switch In</p>
+      <p id="remainingTime" class="text-lg font-mono font-bold">-- sec</p>
+    </div>
+
+    <div class="bg-panelBg p-4 rounded border border-borderDark">
+        <div class="flex justify-between items-center mb-2">
+            <p class="text-xs font-bold uppercase text-slate-400">Arduino Mode</p>
+            <span id="arduinoStatusBadge" class="text-[10px] bg-gray-600 px-2 py-0.5 rounded text-white">OFF</span>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="setArduino(true)" class="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white py-2 rounded text-xs font-bold">ON</button>
+          <button onclick="setArduino(false)" class="flex-1 bg-slate-600 hover:bg-slate-500 text-white py-2 rounded text-xs font-bold">OFF</button>
+        </div>
+    </div>
+
+    <div class="bg-panelBg p-4 rounded border border-borderDark">
+      <p class="text-xs font-bold uppercase text-slate-400 mb-2">System Mode</p>
+      <div class="flex gap-2">
+        <button onclick="setMode('simulation')" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white py-2 rounded text-xs font-bold">Sim</button>
+        <button onclick="setMode('live')" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white py-2 rounded text-xs font-bold">Live</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

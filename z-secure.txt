@@ -1,0 +1,157 @@
+🧱 1️⃣ Folder Structure Check (MOST IMPORTANT)
+
+Project ko isi structure me rakho:
+
+Traffic-Management-System/
+├── app.py
+├── config.py
+├── requirements.txt
+├── core/
+├── camera/
+├── hardware/
+├── utils/
+├── templates/
+├── static/
+├── videos/
+└── arduino_code/
+
+
+📌 app.py project root me hona chahiye
+
+🐍 2️⃣ Python Environment Setup
+(A) Python install check
+
+Terminal / CMD me:
+
+python --version
+
+
+👉 Python 3.8+ hona chahiye
+
+(B) Virtual environment (recommended)
+python -m venv venv
+
+
+Activate venv
+
+Windows
+
+venv\Scripts\activate
+
+
+Linux / Mac
+
+source venv/bin/activate
+
+(C) Dependencies install
+
+requirements.txt me ye hona chahiye:
+
+flask
+opencv-python
+pyserial
+
+
+Install karo:
+
+pip install -r requirements.txt
+
+
+🔌 3️⃣ Arduino Setup (Simulation Mode)
+Step 1: Arduino code upload
+
+Arduino IDE open
+
+arduino_code/traffic_signal.ino
+
+Board: Arduino UNO
+
+Port select karo
+
+Upload
+
+🚨 Serial Monitor BAND rakho
+
+Step 2: COM Port set karo
+
+hardware/arduino_serial.py me:
+
+SERIAL_PORT = "COM3"   # apna actual port likho
+
+
+(Check in Arduino IDE → Tools → Port)
+
+🎥 4️⃣ Video & Camera Setup
+Simulation Mode
+
+Laptop webcam → North
+
+videos/ folder me ye files ho:
+
+south.mp4
+east.mp4
+west.mp4
+
+
+📌 Videos short & loopable hone chahiye
+
+🚀 5️⃣ Run Flask App
+Terminal me project root se:
+python app.py
+
+
+Expected output:
+
+ * Running on http://127.0.0.1:5000
+
+🌐 6️⃣ Open Dashboard
+
+Browser me open karo:
+
+http://127.0.0.1:5000
+
+🧪 7️⃣ Testing Flow (Follow EXACTLY)
+✅ A. Simulation Mode
+
+Dashboard open
+
+Simulation Mode select karo
+
+4 camera feeds dikhenge
+
+Manual Control → North Green
+
+Arduino LED ON hona chahiye
+
+✔️ SUCCESS
+
+✅ B. Live Mode
+
+Live Mode select karo
+
+Arduino OFF
+
+Sirf software signal status update hoga
+
+❌ Common Errors & Quick Fix
+🔴 Flask not found
+ModuleNotFoundError: No module named 'flask'
+
+
+👉 Run:
+
+pip install flask
+
+🔴 Camera not opening
+
+Close Zoom / Meet / Camera app
+
+Webcam sirf ek app use kare
+
+🔴 Arduino not responding
+
+Serial Monitor OFF
+
+Correct COM port
+
+Baud rate 9600
